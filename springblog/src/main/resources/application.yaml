@@ -1,0 +1,59 @@
+# 服务器
+server:
+  port: 8080
+
+# spring
+spring:
+  # 数据连接池
+  datasource:
+    username: xxx
+    password: xxx
+    url: jdbc:mysql://xxx/blog?useSSL=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #druid 连接池
+    type: com.alibaba.druid.pool.DruidDataSource
+
+
+  # 上传服务
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+
+  #jpa
+  jpa:
+    generate-ddl: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        ddl-auto : validate                 # Hibernate ddl auto (create, create-drop, validate, update)
+    show-sql: true
+
+  # 邮箱
+  mail:
+    host: smtp.aliyun.com
+    username: xxxs@aliyun.com
+    password: "xxx"
+    port: 465
+    properties.smtp.auth: true
+    properties.smtp.timeout: 2500
+    properties.mail.smtp.ssl.enable: true
+
+# 日志信息
+logging:
+  level:
+    com:
+      springsecurity:
+        demo: DEBUG
+    org:
+      hibernate: WARN
+      springframework: WARN
+
+# 上传路径
+upload:
+  dir : /home/qdl/Desktop/gallery/
+
+# 图片网络访问路径
+img:
+  imgURL: http://xxx:8080/images/
